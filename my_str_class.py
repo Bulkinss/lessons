@@ -1,4 +1,4 @@
-Поздравляю!
+"Поздравляю!"
 
 class Str2(object):
     def __init__(self, my_string):
