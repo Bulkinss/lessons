@@ -18,3 +18,40 @@ python <program_name> -func -parameter1 -parameter2
 -parameter2 - первый параметр, принимает значени от 0 до 10
 
 Программа возвращает единственное значение в формате int посчитанное согласно введенного параметра -func"""
+
+import sys
+
+
+def add(x, y):
+    return x+y
+
+
+def mul(x, y):
+    return x*y
+
+
+def sub(x, y):
+    return x-y
+
+
+def div(x, y):
+    return x/y
+
+int_argv1 = int(sys.argv[2])
+int_argv2 = int(sys.argv[3])
+
+if (0 <= int_argv1 <= 10) and (0 <= int_argv2 <= 10):
+    if sys.argv[1] == 'add':
+        print add(int_argv1, int_argv2)
+    elif sys.argv[1] == 'mul':
+        print mul(int_argv1, int_argv2)
+    elif sys.argv[1] == 'sub':
+        print sub(int_argv1, int_argv2)
+    elif sys.argv[1] == 'div':
+        print div(int_argv1, int_argv2)
+    else:
+        print 'Invalid function name.\nPossible Functions: add, mul, sub, div.'
+else:
+    print 'Invalid parameter value(s).\nPossible parameter value(s) from 0 to 10.'
+
+
