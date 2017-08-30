@@ -111,3 +111,5 @@ print "Roma: ", my_string.isalpha()
 
 my_string = m_string
 print "Test: ", my_string.isalpha()
+
+m = ['123', '234', '345', '564']
