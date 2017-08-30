@@ -41,16 +41,19 @@ int_argv1 = int(sys.argv[2])
 int_argv2 = int(sys.argv[3])
 
 if (0 <= int_argv1 <= 10) and (0 <= int_argv2 <= 10):
-    if sys.argv[1] == 'add':
+    if sys.argv[1] == '-add':
         print add(int_argv1, int_argv2)
-    elif sys.argv[1] == 'mul':
+    elif sys.argv[1] == '-mul':
         print mul(int_argv1, int_argv2)
-    elif sys.argv[1] == 'sub':
+    elif sys.argv[1] == '-sub':
         print sub(int_argv1, int_argv2)
-    elif sys.argv[1] == 'div':
-        print div(int_argv1, int_argv2)
+    elif sys.argv[1] == '-div':
+        if int_argv2 != 0:
+            print div(int_argv1, int_argv2)
+        else:
+            print 'Division by zero.\nEnter the value of the second argument from 1 to 10.'
     else:
-        print 'Invalid function name.\nPossible Functions: add, mul, sub, div.'
+        print 'Invalid function name.\nPossible Functions: -add, -mul, -sub, -div.'
 else:
     print 'Invalid parameter value(s).\nPossible parameter value(s) from 0 to 10.'
 
