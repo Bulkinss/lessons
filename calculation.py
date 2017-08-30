@@ -22,34 +22,19 @@ python <program_name> -func -parameter1 -parameter2
 import sys
 
 
-def add(x, y):
-    return x+y
-
-
-def mul(x, y):
-    return x*y
-
-
-def sub(x, y):
-    return x-y
-
-
-def div(x, y):
-    return x/y
-
 int_argv1 = int(sys.argv[2])
 int_argv2 = int(sys.argv[3])
 
 if (0 <= int_argv1 <= 10) and (0 <= int_argv2 <= 10):
     if sys.argv[1] == '-add':
-        print add(int_argv1, int_argv2)
+        print int_argv1 + int_argv2
     elif sys.argv[1] == '-mul':
-        print mul(int_argv1, int_argv2)
+        print int_argv1 * int_argv2
     elif sys.argv[1] == '-sub':
-        print sub(int_argv1, int_argv2)
+        print int_argv1 - int_argv2
     elif sys.argv[1] == '-div':
         if int_argv2 != 0:
-            print div(int_argv1, int_argv2)
+            print int_argv1 / int_argv2
         else:
             print 'Division by zero.\nEnter the value of the second argument from 1 to 10.'
     else:
