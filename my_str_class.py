@@ -1,4 +1,3 @@
-"Поздравляю!"
 
 class Str2(object):
     def __init__(self, my_string):
@@ -66,25 +65,20 @@ class Str2(object):
                 return False
         else:
             return False
+
     def isalpha(self):
         counter = 0
         for item in self.my_string:
             if (ord(item) >= 97 and ord(item) <= 122) or (ord(item) >= 65 and ord(item) <= 90):
                 counter += 1
-        if counter == len(self.my_string):
-            return True
-        else:
-            return False
+        return True if counter == len(self.my_string) else False
 
     def isspace(self):
         counter = 0
         for item in self.my_string:
             if item == ' ' or item == '\n' or item == '\t' or item == '-':
                 counter += 1
-        if counter == len(self.my_string):
-            return True
-        else:
-            return False
+        return True if counter == len(self.my_string) else False
 
     def capitalize(self):
         capitalized_list = []
@@ -105,10 +99,7 @@ class Str2(object):
             if self.my_string[item_index] == word[item_index]:
                 counter += 1
             len_word -= 1
-        if counter == len(word):
-            return True
-        else:
-            return False
+        return True if counter == len(word) else False
 
     def endswith(self, word):
         pass
