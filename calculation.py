@@ -22,24 +22,43 @@ python <program_name> -func -parameter1 -parameter2
 import sys
 
 
-int_argv1 = int(sys.argv[2])
-int_argv2 = int(sys.argv[3])
+def add(x, y):
+    return x+y
 
-if (0 <= int_argv1 <= 10) and (0 <= int_argv2 <= 10):
-    if sys.argv[1] == '-add':
-        print int_argv1 + int_argv2
-    elif sys.argv[1] == '-mul':
-        print int_argv1 * int_argv2
-    elif sys.argv[1] == '-sub':
-        print int_argv1 - int_argv2
-    elif sys.argv[1] == '-div':
-        if int_argv2 != 0:
-            print int_argv1 / int_argv2
+
+def mul(x, y):
+    return x*y
+
+
+def sub(x, y):
+    return x-y
+
+
+def div(x, y):
+    return x/y
+
+
+def command_line(first_arg, second_arg, third_arg):
+    second_arg = int(second_arg)
+    third_arg = int(third_arg)
+
+    if (0 <= second_arg <= 10) and (0 <= third_arg <= 10):
+        if first_arg == '-add':
+            return add(second_arg, third_arg)
+        elif first_arg == '-mul':
+            return mul(second_arg, third_arg)
+        elif first_arg == '-sub':
+            return sub(second_arg, third_arg)
+        elif first_arg == '-div':
+            if third_arg != 0:
+                return div(second_arg, third_arg)
+            else:
+             return 'Division by zero.\nEnter the value of the second argument from 1 to 10.'
         else:
-            print 'Division by zero.\nEnter the value of the second argument from 1 to 10.'
+            return 'Invalid function name.\nPossible Functions: -add, -mul, -sub, -div.'
     else:
-        print 'Invalid function name.\nPossible Functions: -add, -mul, -sub, -div.'
-else:
-    print 'Invalid parameter value(s).\nPossible parameter value(s) from 0 to 10.'
+        return 'Invalid parameter value(s).\nPossible parameter value(s) from 0 to 10.'
+
+print command_line(sys.argv[1], sys.argv[2], sys.argv[3])
 
 
