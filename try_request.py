@@ -1,3 +1,6 @@
 import requests
 # errors
-r = requests.get(' https://privat24.privatbank.ua/p24/accountorder?oper=prp&PUREXML&apicour&country=')
+r = requests.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+print r.json()
+
+
