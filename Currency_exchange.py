@@ -1,36 +1,18 @@
 # -*- coding: utf-8 -*-
 from Tkinter import *
+from currency_functions import *
 import requests
 import json
 
 
-def clear_insert(*values_list):
-    output_buy.delete("0.0", "end")
-    output_buy.insert("0.0", values_list[0])
-    output_sale.delete("0.0", "end")
-    output_sale.insert("0.0", values_list[1])
 
-
-def handler():
-    values_list = []
-    name_of_currency = str(main_edit.get())
-    if name_of_currency == 'EUR':
-        values_list.append(str(parsed_string[0]['buy']))
-        values_list.append(str(parsed_string[0]['sale']))
-        clear_insert(values_list)
-    elif name_of_currency == 'USD':
-        values_list.append(str(parsed_string[2]['buy']))
-        values_list.append(str(parsed_string[2]['sale']))
-        clear_insert(values_list)
-    elif name_of_currency == 'RUR':
-        values_list.append(str(parsed_string[1]['buy']))
-        values_list.append(str(parsed_string[1]['sale']))
-        clear_insert(values_list)
 
 
 r = requests.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+print r.text
 json_string = r.text
 parsed_string = json.loads(json_string)
+print parsed_string
 
 root = Tk()
 root.title('Currency exchange')
@@ -55,5 +37,7 @@ output_buy.place(x=45, y=122)
 output_sale = Text(root, bg="lightblue", font="Arial 10", width=5, height=1)
 output_sale.place(x=45, y=152)
 #output_sale = Text(frame, bg="lightblue", font="Arial 10", width=5, height=1)
+val_list = handler(main_edit, parsed_string)
+clear_insert(val_list, output_buy, output_sale)
 
 root.mainloop()

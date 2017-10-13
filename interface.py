@@ -1,8 +1,9 @@
-from tkinter import *
-import tkinter.ttk as ttk
-import wgrs
+# -*- coding: utf-8 -*-
+from Tkinter import *
+#mport tkinter.ttk as ttk
+#import wgrs
 
-root=Tk()
+root = Tk()
 
 root.title('WGRS Web Testing')
 # root.overrideredirect(True)
@@ -39,7 +40,7 @@ def make_result_windows():
 
     return time_text_field, realm_text_field, url_text_field, status_text_field
 
-def show_result():
+'''def show_result():
     text_result_window = make_result_windows()
     returning_text = wgrs.test_ping_pong()
     for returning_text_item in returning_text:
@@ -49,7 +50,7 @@ def show_result():
         text_result_window[0].insert('1.0', returning_text_item[0] + '\n', ('time'))
         text_result_window[1].insert('1.0', returning_text_item[1] + '\n', ('realm'))
         text_result_window[2].insert('1.0', returning_text_item[2] + '\n')
-        text_result_window[3].insert('1.0', returning_text_item[3] + '\n', ('status'))
+        text_result_window[3].insert('1.0', returning_text_item[3] + '\n', ('status'))'''
 
 
 make_start_button()
