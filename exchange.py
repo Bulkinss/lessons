@@ -15,10 +15,8 @@ def handler():
 
 
 def clear_insert(values_list):
-    output_label_buy = Label(root, text=round(float(values_list[0]), 2))
-    output_label_buy.place(x=45, y=141)
-    output_label_sale = Label(root, text=round(float(values_list[1]), 2))
-    output_label_sale.place(x=45, y=171)
+    output_label_buy['text'] = round(float(values_list[0]), 2)
+    output_label_sale['text'] = round(float(values_list[1]), 2)
 
 
 def selection():
@@ -42,6 +40,10 @@ buy_label = Label(root, text='Buy: ').place(x=5, y=140)
 sale_label = Label(root, text='Sale: ').place(x=5, y=170)
 grn_label_buy = Label(root, text='UAH').place(x=100, y=141)
 grn_label_sale = Label(root, text='UAH').place(x=100, y=171)
+output_label_buy = Label(root, text='')
+output_label_buy.place(x=45, y=141)
+output_label_sale = Label(root, text='')
+output_label_sale.place(x=45, y=171)
 #main_edit = Entry(root, bg='lightblue', width=5)
 #main_edit.place(x=205, y=100)
 listbox1 = Listbox(root, height=5, width=15, selectmode=SINGLE)
