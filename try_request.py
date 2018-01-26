@@ -7,10 +7,6 @@ parsed_string = json.loads(json_string)
 print parsed_string
 print parsed_string[0]['ccy']
 print type(parsed_string[0]['sale'])
-values_list = []
-values_list.append(str(parsed_string[0]['buy']))
-values_list.append(str(parsed_string[0]['sale']))
-print values_list
 
 print 'You can find out the exchange rate for such currencies:'
 print '- ' + parsed_string[2]['ccy']

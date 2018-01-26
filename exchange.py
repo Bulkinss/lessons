@@ -2,6 +2,7 @@
 from Tkinter import *
 import commons
 import functions
+import ttk
 
 
 def handler():
@@ -20,14 +21,12 @@ def clear_insert(values_list):
 
 
 def selection():
-    currency = listbox1.curselection()
-    for item in currency:
-        return listbox1.get(item)
+    return Currency_combobox.get()
 
 
 root = Tk()
 root.title('Currency exchange')
-root.minsize(600, 400)
+root.minsize(400, 200)
 root.resizable(width=False, height=False)
 
 first_label = Label(root, text='You can find out the exchange rate for next currencies:').place(x=5, y=5)
@@ -35,29 +34,20 @@ usd_label = Label(root, text='- USD').place(x=5, y=20)
 eur_label = Label(root, text='- EUR').place(x=5, y=40)
 rur_label = Label(root, text='- RUR').place(x=5, y=60)
 btc_label = Label(root, text='- BTC').place(x=5, y=80)
-enter_label = Label(root, text='Select currency: ').place(x=5, y=115)
-buy_label = Label(root, text='Buy: ').place(x=5, y=170)
-sale_label = Label(root, text='Sale: ').place(x=5, y=200)
-grn_label_buy = Label(root, text='UAH').place(x=100, y=171)
-grn_label_sale = Label(root, text='UAH').place(x=100, y=201)
+enter_label = Label(root, text='Select currency: ').place(x=5, y=105)
+buy_label = Label(root, text='Buy: ').place(x=5, y=141)
+sale_label = Label(root, text='Sale: ').place(x=5, y=171)
+grn_label_buy = Label(root, text='UAH').place(x=100, y=141)
+grn_label_sale = Label(root, text='UAH').place(x=100, y=171)
 output_label_buy = Label(root, text='')
 output_label_buy.place(x=45, y=141)
 output_label_sale = Label(root, text='')
 output_label_sale.place(x=45, y=171)
 
 
-Listbox_currency = Listbox(root, height=2, width=15, selectmode=BROWSE)
-Listbox_currency.place(x=100, y=116)
-Listbox_currency.insert(1, 'USD')
-Listbox_currency.insert(2, 'EUR')
-Listbox_currency.insert(3, 'RUR')
-Listbox_currency.insert(4, 'BTC')
-
-scrollbar = Scrollbar(root, width=1)
-scrollbar.place(x=190, y=105)
-scrollbar['command'] = Listbox_currency.yview
-Listbox_currency['yscrollcommand'] = scrollbar.set
-
-main_button = Button(root, text="Ok", command=handler).place(x=215, y=110)
+main_button = Button(root, text="Ok", command=handler).place(x=250, y=102)
+Currency_combobox = ttk.Combobox(root,values = [u"USD",u"EUR",u"RUR",u"BTC"],height=4)
+Currency_combobox.set(u"USD")
+Currency_combobox.place(x=100, y=105)
 root.mainloop()
 
